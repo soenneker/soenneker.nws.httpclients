@@ -11,15 +11,15 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Nws.HttpClients;
 
-///<inheritdoc cref="IOpenApiHttpClient"/>
-public sealed class OpenApiHttpClient : IOpenApiHttpClient
+///<inheritdoc cref="INwsOpenApiHttpClient"/>
+public sealed class NwsOpenApiHttpClient : INwsOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
     private readonly IConfiguration _config;
 
     private const string _prodBaseUrl = "https://api.weather.gov";
 
-    public OpenApiHttpClient(IHttpClientCache httpClientCache, IConfiguration config)
+    public NwsOpenApiHttpClient(IHttpClientCache httpClientCache, IConfiguration config)
     {
         _httpClientCache = httpClientCache;
         _config = config;
@@ -27,7 +27,7 @@ public sealed class OpenApiHttpClient : IOpenApiHttpClient
 
     public ValueTask<HttpClient> Get(CancellationToken cancellationToken = default)
     {
-        return _httpClientCache.Get(nameof(OpenApiHttpClient), (config: _config, prodBaseUrl: _prodBaseUrl), static state =>
+        return _httpClientCache.Get(nameof(NwsOpenApiHttpClient), (config: _config, prodBaseUrl: _prodBaseUrl), static state =>
         {
             var userAgent = state.config.GetValueStrict<string>("Nws:UserAgent");
 
@@ -44,11 +44,11 @@ public sealed class OpenApiHttpClient : IOpenApiHttpClient
 
     public void Dispose()
     {
-        _httpClientCache.RemoveSync(nameof(OpenApiHttpClient));
+        _httpClientCache.RemoveSync(nameof(NwsOpenApiHttpClient));
     }
 
     public ValueTask DisposeAsync()
     {
-        return _httpClientCache.Remove(nameof(OpenApiHttpClient));
+        return _httpClientCache.Remove(nameof(NwsOpenApiHttpClient));
     }
 }
