@@ -8,26 +8,26 @@ namespace Soenneker.Nws.HttpClients.Registrars;
 /// <summary>
 /// A .NET thread-safe singleton HttpClient for GitHub
 /// </summary>
-public static class OpenApiHttpClientRegistrar
+public static class NwsOpenApiHttpClientRegistrar
 {
     /// <summary>
-    /// Adds <see cref="OpenApiHttpClient"/> as a singleton service. <para/>
+    /// Adds <see cref="NwsOpenApiHttpClient"/> as a singleton service. <para/>
     /// </summary>
-    public static IServiceCollection AddOpenApiHttpClientAsSingleton(this IServiceCollection services)
+    public static IServiceCollection AddNwsOpenApiHttpClientAsSingleton(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton()
-                .TryAddSingleton<IOpenApiHttpClient, OpenApiHttpClient>();
+                .TryAddSingleton<INwsOpenApiHttpClient, NwsOpenApiHttpClient>();
 
         return services;
     }
 
     /// <summary>
-    /// Adds <see cref="OpenApiHttpClient"/> as a scoped service. <para/>
+    /// Adds <see cref="NwsOpenApiHttpClient"/> as a scoped service. <para/>
     /// </summary>
-    public static IServiceCollection AddOpenApiHttpClientAsScoped(this IServiceCollection services)
+    public static IServiceCollection AddNwsOpenApiHttpClientAsScoped(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton()
-                .TryAddScoped<IOpenApiHttpClient, OpenApiHttpClient>();
+                .TryAddScoped<INwsOpenApiHttpClient, NwsOpenApiHttpClient>();
 
         return services;
     }
