@@ -7,6 +7,10 @@
     <File Path=".github/workflows/codeql.yml" />
     <File Path=".github/workflows/publish-package.yml" />
   </Folder>
-  <Project Path="src/Soenneker.Nws.HttpClients/Soenneker.Nws.HttpClients.csproj" />
-  <Project Path="test/Soenneker.Nws.HttpClients.Tests/Soenneker.Nws.HttpClients.Tests.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Soenneker.Nws.HttpClients/Soenneker.Nws.HttpClients.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Soenneker.Nws.HttpClients.Tests/Soenneker.Nws.HttpClients.Tests.csproj" />
+  </Folder>
 </Solution>
