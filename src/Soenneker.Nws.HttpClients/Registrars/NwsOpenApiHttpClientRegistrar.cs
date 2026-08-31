@@ -6,7 +6,7 @@ using Soenneker.Utils.HttpClientCache.Registrar;
 namespace Soenneker.Nws.HttpClients.Registrars;
 
 /// <summary>
-/// A .NET thread-safe singleton HttpClient for GitHub
+/// Registers the National Weather Service HTTP client provider.
 /// </summary>
 public static class NwsOpenApiHttpClientRegistrar
 {

@@ -6,15 +6,14 @@ using System.Threading;
 namespace Soenneker.Nws.HttpClients.Abstract;
 
 /// <summary>
-/// A .NET thread-safe singleton HttpClient for 
+/// Provides a cached HTTP client configured for the National Weather Service API.
 /// </summary>
 public interface INwsOpenApiHttpClient : IDisposable, IAsyncDisposable
 {
     /// <summary>
-    /// Asynchronously retrieves an instance of <see cref="HttpClient"/> for making HTTP requests.
+    /// Gets the configured National Weather Service HTTP client.
     /// </summary>
     /// <param name="cancellationToken">A cancellation token that can be used to cancel the asynchronous operation.</param>
-    /// <returns>A <see cref="ValueTask{TResult}"/> representing the asynchronous operation. The result contains an <see
-    /// cref="HttpClient"/> instance for sending HTTP requests.</returns>
+    /// <returns>The cached client.</returns>
     ValueTask<HttpClient> Get(CancellationToken cancellationToken = default);
 }
