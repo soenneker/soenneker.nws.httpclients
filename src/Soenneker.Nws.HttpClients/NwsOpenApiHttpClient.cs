@@ -11,6 +11,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Nws.HttpClients;
 
+/// <inheritdoc cref="INwsOpenApiHttpClient" />
 public sealed class NwsOpenApiHttpClient : INwsOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
