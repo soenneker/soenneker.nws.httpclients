@@ -30,7 +30,7 @@ public sealed class NwsOpenApiHttpClient : INwsOpenApiHttpClient
     {
         return _httpClientCache.Get(_clientId, (config: _config, baseUrl: _config["Nws:ClientBaseUrl"] ?? _prodBaseUrl), static state =>
         {
-            var userAgent = state.config.GetValueStrict<string>("Nws:UserAgent");
+            var userAgent = state.config.GetStringStrict("Nws:UserAgent");
 
             return new HttpClientOptions
             {
